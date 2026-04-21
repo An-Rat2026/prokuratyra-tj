@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Прокуратура и Конституция Республики Таджикистан</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', 'Arial', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/0/0e/Emblem_of_Tajikistan.svg');
+      background-size: 500px;
+      background-repeat: repeat;
+      background-position: center;
+      background-attachment: fixed;
+      background-color: #1a3a5c;
+      padding: 20px;
+      position: relative;
+    }
+
+    /* Белый полупрозрачный слой поверх герба для читаемости */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.88);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .page-wrapper {
+      max-width: 1400px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ШАПКА */
+    .top-header {
+      background: linear-gradient(135deg, #0a2a4a 0%, #1a4a6e 100%);
+      border-radius: 20px 20px 0 0;
+      padding: 30px 40px;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      border-bottom: 4px solid #d4a017;
+    }
+
+    .header-flag {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .header-flag img {
+      width: 90px;
+      height: auto;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+    }
+
+    .header-text h1 {
+      color: white;
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+      margin-bottom: 8px;
+    }
+
+    .header-text p {
+      color: #e0e8ff;
+      font-size: 1.1rem;
+      font-style: italic;
+    }
+
+    /* НАВИГАЦИЯ */
+    .nav-bar {
+      background: #ffffff;
+      padding: 12px 40px;
+      display: flex;
+      gap: 35px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border-bottom: 2px solid #d4a017;
+    }
+
+    .nav-bar a {
+      color: #0a2a4a;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 6px 0;
+      border-bottom: 3px solid transparent;
+      transition: 0.3s;
+    }
+
+    .nav-bar a:hover {
+      border-bottom-color: #d4a017;
+      color: #1a4a6e;
+    }
+
+    /* ОСНОВНОЙ КОНТЕНТ */
+    .main-content {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(2px);
+      padding: 40px;
+      border-radius: 0 0 20px 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+
+    /* ЦИТАТЫ ПРЕЗИДЕНТА 2026 */
+    .president-quotes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+
+    .quote-card {
+      background: linear-gradient(to bottom, #f8f4e8, #fff);
+      border-left: 6px solid #d4a017;
+      border-radius: 12px;
+      padding: 22px 20px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+
+    .quote-year {
+      display: inline-block;
+      background: #d4a017;
+      color: #0a2a4a;
+      font-weight: bold;
+      padding: 4px 14px;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+    }
+
+    .quote-card p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #222;
+      margin-bottom: 10px;
+      font-style: italic;
+    }
+
+    .quote-card small {
+      color: #666;
+      font-size: 0.85rem;
+    }
+
+    /* БЛОК КОНСТИТУЦИИ */
+    .constitution-section {
+      margin-top: 30px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 30px;
+      border-bottom: 3px solid #0a2a4a;
+      padding-bottom: 15px;
+    }
+
+    .section-title h2 {
+      font-size: 2rem;
+      color: #0a2a4a;
+      font-weight: 700;
+    }
+
+    .section-title span {
+      background: #0a2a4a;
+      color: #d4a017;
+      padding: 5px 15px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+    }
+
+    .const-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .const-chapter {
+      background: white;
+      border-radius: 16px;
+      padding: 25px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      border-top: 5px solid #0a2a4a;
+    }
+
+    .const-chapter h3 {
+      color: #0a2a4a;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px dashed #d4a017;
+    }
+
+    .article {
+      margin-bottom: 18px;
+      padding-left: 15px;
+      border-left: 3px solid #d4a017;
+    }
+
+    .article-number {
+      font-weight: 700;
+      color: #0a2a4a;
+      margin-right: 8px;
+    }
+
+    .article p {
+      color: #333;
+      line-height: 1.6;
+      text-align: justify;
+    }
+
+    /* ПРАВАЯ КОЛОНКА (НОВОСТИ) */
+    .right-sidebar {
+      margin-top: 40px;
+      background: rgba(10, 42, 74, 0.05);
+      border-radius: 16px;
+      padding: 25px;
+    }
+
+    .news-widget h3 {
+      color: #0a2a4a;
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .news-item {
+      background: white;
+      border-radius: 12px;
+      padding: 18px;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.2s;
+    }
+
+    .news-item:hover {
+      transform: translateX(5px);
+      background: #fcf9f0;
+    }
+
+    .news-date {
+      color: #d4a017;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+    }
+
+    .news-item p {
+      color: #0a2a4a;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    /* ПОДВАЛ */
+    .footer {
+      margin-top: 40px;
+      text-align: center;
+      color: #0a2a4a;
+      padding: 20px;
+      border-top: 2px solid #d4a017;
+      font-weight: 500;
+    }
+
+    .footer a {
+      color: #0a2a4a;
+      text-decoration: none;
+      border-bottom: 1px dotted;
+    }
+
+    @media (max-width: 900px) {
+      .president-quotes {
+        grid-template-columns: 1fr;
+      }
+      .const-grid {
+        grid-template-columns: 1fr;
+      }
+      .top-header {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- Шапка с гербом и названием -->
+    <header class="top-header">
+      <div class="header-flag">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Emblem_of_Tajikistan.svg" alt="Герб Таджикистана">
+      </div>
+      <div class="header-text">
+        <h1>ПРОКУРАТУРА РЕСПУБЛИКИ ТАДЖИКИСТАН</h1>
+        <p>Официальный информационный портал правопорядка и конституционной законности</p>
+      </div>
+    </header>
+
+    <!-- Навигация -->
+    <nav class="nav-bar">
+      <a href="#">ГЛАВНАЯ</a>
+      <a href="#">КОНСТИТУЦИЯ</a>
+      <a href="#">НОВОСТИ ПРОКУРАТУРЫ</a>
+      <a href="#">ОБРАЩЕНИЯ ГРАЖДАН</a>
+      <a href="#">КОНТАКТЫ</a>
+    </nav>
+
+    <!-- Основной контент -->
+    <main class="main-content">
+      <!-- Цитаты Эмомали Рахмона 2026 -->
+      <div class="president-quotes">
+        <div class="quote-card">
+          <div class="quote-year">2026 · ГОД РАЗВИТИЯ</div>
+          <p>«Мы объявили Год расширения развития и созидательных начинаний, укрепления и консолидации национального самосознания и идентичности» [citation:4]</p>
+          <small>— Эмомали Рахмон, февраль 2026</small>
+        </div>
+        <div class="quote-card">
+          <div class="quote-year">НАВРУЗ · 21 МАРТА 2026</div>
+          <p>«Мы, мусульманская умма, должны быть бдительными и дальновидными. В трудные времена мы должны поддерживать и помогать друг другу» [citation:2]</p>
+          <small>— Выступление на праздновании Навруза</small>
+        </div>
+        <div class="quote-card">
+          <div class="quote-year">РАМАДАН · 2026</div>
+          <p>«Строительство дорог, мостов, школ и детских садов — это непрерывная благотворительность (садака джария), приносящая духовную награду» [citation:4]</p>
+          <small>— Поздравление с Рамаданом</small>
+        </div>
+      </div>
+
+      <!-- Конституция РТ -->
+      <div class="constitution-section">
+        <div class="section-title">
+          <h2>КОНСТИТУЦИЯ РЕСПУБЛИКИ ТАДЖИКИСТАН</h2>
+          <span>принята 6 ноября 1994 г. (с изм. 2016 г.)</span>
+        </div>
+
+        <div class="const-grid">
+          <!-- Глава 1 -->
+          <div class="const-chapter">
+            <h3>Глава 1. Основы конституционного строя</h3>
+            <div class="article">
+              <span class="article-number">Статья 1.</span>
+              <p>Республика Таджикистан — суверенное, демократическое, правовое, светское и унитарное государство. Форма правления — президентская. Таджикистан — социальное государство [citation:1].</p>
+            </div>
+            <div class="article">
+              <span class="article-number">Статья 2.</span>
+              <p>Государственный язык — таджикский. Русский язык является языком межнационального общения. Все нации вправе пользоваться родным языком [citation:1].</p>
+            </div>
+            <div class="article">
+              <span class="article-number">Статья 5.</span>
+              <p>Человек, его права и свободы — высшая ценность. Жизнь, честь, достоинство и другие естественные права неприкосновенны [citation:1].</p>
+            </div>
+            <div class="article">
+              <span class="article-number">Статья 6.</span>
+              <p>Народ — носитель суверенитета и единственный источник государственной власти. Узурпация власти — особо тяжкое преступление [citation:1].</p>
+            </div>
+            <div class="article">
+              <span class="article-number">Статья 9.</span>
+              <p>Государственная власть осуществляется на основе её разделения на законодательную, исполнительную и судебную [citation:1].</p>
+            </div>
+          </div>
+
+          <!-- Глава 2 -->
+          <div class="const-chapter">
+            <h3>Глава 2. Права, свободы, обязанности человека и гражданина</h3>
+            <div class="article">
+              <span class="article-number">Статья 14.</span>
+              <p>Права и свободы регулируются Конституцией и международными актами. Ограничения допускаются только для защиты прав других, порядка, безопасности и территориальной целостности [citation:1].</p>
+            </div>
+            <div class="article">
+              <span class="article-number">Статья 17.</span>
+              <p>Все равны перед законом и судом. Гарантируются права независимо от национальности, расы, пола, языка, вероисповедания, убеждений, имущественного положения. Мужчины и женщины равноправны [citation:1].</p>
+            </div>
+            <div class="article">
+              <span class="article-number">Статья 18.</span>
+              <p>Каждый имеет право на жизнь. Никто не может быть лишён жизни, кроме как по приговору суда за особо тяжкое преступление. Пытки и бесчеловечное обращение запрещены [citation:1].</p>
+            </div>
+            <div class="article">
+              <span class="article-number">Статья 20.</span>
+              <p>Никто не считается виновным до вступления приговора в законную силу. Закон, усиливающий ответственность, обратной силы не имеет [citation:1].</p>
+            </div>
+          </div>
+
+          <!-- Глава 6 (дополнительно) -->
+          <div class="const-chapter">
+            <h3>Глава 6. Местные органы власти</h3>
+            <div class="article">
+              <span class="article-number">Статья 76.</span>
+              <p>Местные органы государственной власти состоят из представительных и исполнительных органов. Они обеспечивают исполнение Конституции, законов и актов Президента [citation:1].</p>
+            </div>
+            <div class="article">
+              <span class="article-number">Статья 77.</span>
+              <p>Местный Маджлис народных депутатов утверждает местный бюджет, программы развития, устанавливает местные налоги и сборы [citation:1].</p>
+            </div>
+          </div>
+
+          <!-- Дополнительно: судебная власть -->
+          <div class="const-chapter">
+            <h3>Судебная власть · Прокуратура</h3>
+            <div class="article">
+              <span class="article-number">Статья 84.</span>
+              <p>Судебная власть независима и осуществляется от имени государства. Судебная система состоит из Конституционного суда, Верховного суда, Высшего экономического суда, Военного суда, судов областей, г. Душанбе, городов и районов [citation:1].</p>
+            </div>
+            <div class="article">
+              <span class="article-number">Статья 91.</span>
+              <p>Судьи независимы и подчиняются только Конституции и закону. Вмешательство в их деятельность запрещается [citation:1].</p>
+            </div>
+            <div class="article">
+              <span class="article-number">Статья 93.</span>
+              <p>Надзор за точным и единообразным исполнением законов на территории Таджикистана осуществляется Генеральным прокурором и подчинёнными ему прокурорами [citation:1].</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Блок последних новостей -->
+      <div class="right-sidebar">
+        <div class="news-widget">
+          <h3>📰 ПОСЛЕДНИЕ НОВОСТИ ТАДЖИКИСТАНА</h3>
+          <div class="news-item">
+            <div class="news-date">20 апреля 2026</div>
+            <p>Всемирный банк одобрил экстренное финансирование для Таджикистана на поддержку экономических реформ</p>
+          </div>
+          <div class="news-item">
+            <div class="news-date">21 марта 2026</div>
+            <p>Эмомали Рахмон выступил на Наврузе: «Мусульманская умма должна поддерживать друг друга в трудные времена» [citation:2]</p>
+          </div>
+          <div class="news-item">
+            <div class="news-date">6 марта 2026</div>
+            <p>Президент произвёл кадровые изменения в структурах Верховного суда и органов прокуратуры Таджикистана</p>
+          </div>
+          <div class="news-item">
+            <div class="news-date">19 февраля 2026</div>
+            <p>Рахмон: «Строительство и восстановление дорог, мостов, школ и медучреждений — это непрерывная благотворительность» [citation:4]</p>
+          </div>
+          <div class="news-item">
+            <div class="news-date">18 февраля 2026</div>
+            <p>В Душанбе прошла 3-я конференция по водному десятилетию действий под председательством Президента РТ [citation:7]</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Подвал -->
+    <footer class="footer">
+      <p>© 2026 Генеральная прокуратура Республики Таджикистан. Официальный портал.</p>
+      <p>Конституция принята всенародным референдумом 6 ноября 1994 г. (изм. 1999, 2003, 2016 гг.)</p>
+      <p><a href="#">Президент Таджикистана</a> · <a href="#">Маджлиси Оли</a> · <a href="#">Портал правовой информации</a></p>
+    </footer>
+  </div>
+</body>
+</html>
