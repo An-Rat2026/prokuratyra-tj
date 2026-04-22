@@ -14,81 +14,57 @@
 
     body {
       min-height: 100vh;
-      background-image: url('https://upload.wikimedia.org/wikipedia/commons/0/0e/Emblem_of_Tajikistan.svg');
-      background-size: 500px;
-      background-repeat: repeat;
-      background-position: center;
-      background-attachment: fixed;
-      background-color: #1a3a5c;
+      background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
       padding: 20px;
-      position: relative;
-    }
-
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(255, 255, 255, 0.88);
-      pointer-events: none;
-      z-index: 0;
     }
 
     .page-wrapper {
       max-width: 1400px;
       margin: 0 auto;
-      position: relative;
-      z-index: 1;
     }
 
     /* ШАПКА */
     .top-header {
       background: linear-gradient(135deg, #0a2a4a 0%, #1a4a6e 100%);
       border-radius: 20px 20px 0 0;
-      padding: 30px 40px;
+      padding: 25px 35px;
       display: flex;
       align-items: center;
-      gap: 30px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      gap: 25px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
       border-bottom: 4px solid #d4a017;
     }
 
-    .header-flag {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
     .header-flag img {
-      width: 90px;
+      width: 80px;
       height: auto;
       filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+      display: block;
     }
 
     .header-text h1 {
       color: white;
-      font-size: 2.2rem;
+      font-size: 2rem;
       font-weight: 700;
       letter-spacing: 2px;
       text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .header-text p {
       color: #e0e8ff;
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-style: italic;
     }
 
     /* НАВИГАЦИЯ */
     .nav-bar {
       background: #ffffff;
-      padding: 12px 40px;
+      padding: 12px 35px;
       display: flex;
-      gap: 35px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      flex-wrap: wrap;
+      gap: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
       border-bottom: 2px solid #d4a017;
     }
 
@@ -96,10 +72,11 @@
       color: #0a2a4a;
       text-decoration: none;
       font-weight: 600;
-      font-size: 1.1rem;
-      padding: 6px 0;
+      font-size: 1rem;
+      padding: 5px 0;
       border-bottom: 3px solid transparent;
       transition: 0.3s;
+      white-space: nowrap;
     }
 
     .nav-bar a:hover {
@@ -109,122 +86,128 @@
 
     /* ОСНОВНОЙ КОНТЕНТ */
     .main-content {
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(2px);
-      padding: 40px;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 30px;
       border-radius: 0 0 20px 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
 
-    /* БЛОК НОВОСТЕЙ СВЕРХУ (КРАСИВЫЙ) */
-    .news-section-top {
-      margin-bottom: 40px;
-      background: linear-gradient(to right, #f8f4e8, #ffffff);
-      border-radius: 20px;
-      padding: 25px 30px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      border-left: 8px solid #0a2a4a;
-    }
-
-    .news-section-top h2 {
-      color: #0a2a4a;
-      font-size: 1.8rem;
-      margin-bottom: 20px;
+    /* ЗАГОЛОВКИ СЕКЦИЙ */
+    .section-header {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
+      margin-bottom: 20px;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #0a2a4a;
+      border-bottom: 3px solid #d4a017;
+      padding-bottom: 10px;
     }
 
-    .news-section-top h2 i {
-      color: #d4a017;
-      font-size: 2rem;
-    }
-
+    /* СЕТКА НОВОСТЕЙ */
     .news-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
+      margin-bottom: 30px;
     }
 
     .news-card {
       background: white;
       border-radius: 14px;
-      padding: 20px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-      transition: all 0.3s ease;
-      border-bottom: 3px solid #d4a017;
+      padding: 18px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      border: 1px solid #e0e0e0;
+      border-top: 4px solid #0a2a4a;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
 
     .news-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 25px rgba(10, 42, 74, 0.15);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(10, 42, 74, 0.15);
     }
 
-    .news-category {
+    .news-tag {
       display: inline-block;
       background: #0a2a4a;
       color: #d4a017;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       font-weight: 700;
-      padding: 4px 12px;
+      padding: 4px 10px;
       border-radius: 20px;
       margin-bottom: 12px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
+      align-self: flex-start;
+    }
+
+    .news-tag.world {
+      background: #8b0000;
+      color: #ffd700;
     }
 
     .news-card h3 {
       color: #0a2a4a;
-      font-size: 1.15rem;
-      margin-bottom: 12px;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
       line-height: 1.4;
+      font-weight: 600;
     }
 
     .news-card p {
       color: #555;
       font-size: 0.9rem;
-      margin-bottom: 15px;
       line-height: 1.5;
+      margin-bottom: 15px;
+      flex-grow: 1;
     }
 
-    .news-link {
-      display: inline-flex;
+    .news-meta {
+      display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 8px;
-      color: #0a2a4a;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      border-bottom: 2px solid #d4a017;
-      padding-bottom: 4px;
-      transition: 0.2s;
-    }
-
-    .news-link:hover {
-      color: #d4a017;
-      border-bottom-color: #0a2a4a;
+      margin-top: auto;
+      border-top: 1px solid #eee;
+      padding-top: 12px;
     }
 
     .news-date {
       color: #888;
       font-size: 0.8rem;
-      margin-top: 8px;
+      font-weight: 500;
     }
 
-    /* ЦИТАТЫ ПРЕЗИДЕНТА 2026 */
-    .president-quotes {
+    .news-link {
+      color: #0a2a4a;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.85rem;
+      border-bottom: 2px solid #d4a017;
+      padding-bottom: 2px;
+    }
+
+    .news-link:hover {
+      color: #d4a017;
+    }
+
+    /* ЦИТАТЫ */
+    .quotes-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
-      margin-bottom: 40px;
+      gap: 20px;
+      margin: 30px 0;
     }
 
     .quote-card {
-      background: linear-gradient(to bottom, #f8f4e8, #fff);
-      border-left: 6px solid #d4a017;
-      border-radius: 12px;
-      padding: 22px 20px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      background: #f8fafc;
+      border-left: 5px solid #d4a017;
+      border-radius: 10px;
+      padding: 18px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     }
 
     .quote-year {
@@ -232,180 +215,111 @@
       background: #d4a017;
       color: #0a2a4a;
       font-weight: bold;
-      padding: 4px 14px;
-      border-radius: 25px;
-      font-size: 0.9rem;
+      padding: 3px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
       margin-bottom: 12px;
     }
 
     .quote-card p {
-      font-size: 1rem;
-      line-height: 1.6;
+      font-size: 0.95rem;
+      line-height: 1.5;
       color: #222;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       font-style: italic;
     }
 
     .quote-card small {
       color: #666;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
     }
 
-    /* БЛОК КОНСТИТУЦИИ */
-    .constitution-section {
-      margin-top: 30px;
-    }
-
-    .section-title {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      margin-bottom: 30px;
-      border-bottom: 3px solid #0a2a4a;
-      padding-bottom: 15px;
-    }
-
-    .section-title h2 {
-      font-size: 2rem;
-      color: #0a2a4a;
-      font-weight: 700;
-    }
-
-    .section-title span {
-      background: #0a2a4a;
-      color: #d4a017;
-      padding: 5px 15px;
-      border-radius: 30px;
-      font-size: 0.9rem;
-    }
-
+    /* КОНСТИТУЦИЯ */
     .const-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 25px;
+      gap: 20px;
+      margin-top: 20px;
     }
 
     .const-chapter {
       background: white;
-      border-radius: 16px;
-      padding: 25px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-      border-top: 5px solid #0a2a4a;
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+      border: 1px solid #e0e0e0;
+      border-top: 4px solid #0a2a4a;
     }
 
     .const-chapter h3 {
       color: #0a2a4a;
-      font-size: 1.5rem;
-      margin-bottom: 20px;
-      padding-bottom: 10px;
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      padding-bottom: 8px;
       border-bottom: 2px dashed #d4a017;
     }
 
     .article {
-      margin-bottom: 18px;
-      padding-left: 15px;
+      margin-bottom: 14px;
+      padding-left: 12px;
       border-left: 3px solid #d4a017;
     }
 
     .article-number {
       font-weight: 700;
       color: #0a2a4a;
-      margin-right: 8px;
+      margin-right: 6px;
     }
 
     .article p {
-      color: #333;
-      line-height: 1.6;
-      text-align: justify;
-    }
-
-    /* ПРАВАЯ КОЛОНКА (ДОП. НОВОСТИ) */
-    .right-sidebar {
-      margin-top: 40px;
-      background: rgba(10, 42, 74, 0.05);
-      border-radius: 16px;
-      padding: 25px;
-    }
-
-    .news-widget h3 {
-      color: #0a2a4a;
-      font-size: 1.4rem;
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .news-item {
-      background: white;
-      border-radius: 12px;
-      padding: 18px;
-      margin-bottom: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      transition: transform 0.2s;
-    }
-
-    .news-item:hover {
-      transform: translateX(5px);
-      background: #fcf9f0;
-    }
-
-    .news-date-item {
-      color: #d4a017;
-      font-weight: 700;
-      font-size: 0.9rem;
-      margin-bottom: 6px;
-    }
-
-    .news-item p {
-      color: #0a2a4a;
-      font-weight: 500;
+      color: #444;
       line-height: 1.5;
-    }
-
-    .news-item a {
-      color: #0a2a4a;
-      text-decoration: none;
-      font-size: 0.85rem;
-      border-bottom: 1px dotted #d4a017;
+      font-size: 0.9rem;
     }
 
     /* ПОДВАЛ */
     .footer {
-      margin-top: 40px;
+      margin-top: 30px;
       text-align: center;
       color: #0a2a4a;
       padding: 20px;
       border-top: 2px solid #d4a017;
       font-weight: 500;
+      background: rgba(255,255,255,0.7);
+      border-radius: 0 0 20px 20px;
     }
 
     .footer a {
       color: #0a2a4a;
       text-decoration: none;
       border-bottom: 1px dotted;
+      margin: 0 8px;
     }
 
-    @media (max-width: 900px) {
-      .news-grid {
-        grid-template-columns: 1fr;
+    /* АДАПТИВ */
+    @media (max-width: 1000px) {
+      .news-grid, .quotes-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
-      .president-quotes {
-        grid-template-columns: 1fr;
-      }
-      .const-grid {
+    }
+
+    @media (max-width: 700px) {
+      .news-grid, .quotes-grid, .const-grid {
         grid-template-columns: 1fr;
       }
       .top-header {
         flex-direction: column;
         text-align: center;
       }
+      .nav-bar {
+        justify-content: center;
+      }
     }
   </style>
 </head>
 <body>
   <div class="page-wrapper">
-    <!-- Шапка с гербом и названием -->
+    <!-- ШАПКА С ГЕРБОМ -->
     <header class="top-header">
       <div class="header-flag">
         <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Emblem_of_Tajikistan.svg" alt="Герб Таджикистана">
@@ -416,214 +330,191 @@
       </div>
     </header>
 
-    <!-- Навигация -->
+    <!-- НАВИГАЦИЯ -->
     <nav class="nav-bar">
       <a href="#">ГЛАВНАЯ</a>
       <a href="#">КОНСТИТУЦИЯ</a>
       <a href="#">НОВОСТИ</a>
-      <a href="#">ОБРАЩЕНИЯ ГРАЖДАН</a>
+      <a href="#">ОБРАЩЕНИЯ</a>
       <a href="#">КОНТАКТЫ</a>
     </nav>
 
-    <!-- Основной контент -->
+    <!-- ОСНОВНОЙ КОНТЕНТ -->
     <main class="main-content">
       
-      <!-- ===== НОВЫЙ БЛОК НОВОСТЕЙ СВЕРХУ (КЛИКАБЕЛЬНЫЕ) ===== -->
-      <div class="news-section-top">
-        <h2>
-          <span>📰 ПОСЛЕДНИЕ НОВОСТИ ТАДЖИКИСТАНА</span>
-          <span style="font-size: 0.9rem; margin-left: auto; color: #666;">Официальные источники</span>
-        </h2>
-        <div class="news-grid">
-          
-          <div class="news-card">
-            <span class="news-category">Политика</span>
-            <h3>Эмомали Рахмон выступил на праздновании Навруза</h3>
-            <p>Президент призвал мусульманскую умму к единству, бдительности и взаимопомощи в трудные времена.</p>
-            <a href="https://khovar.tj/rus/2026/03/vystuplenie-prezidenta-na-navruz/" class="news-link" target="_blank">Читать на Ховар →</a>
-            <div class="news-date">21 марта 2026</div>
+      <!-- НОВОСТИ ТАДЖИКИСТАНА -->
+      <div class="section-header">
+        <span>📰 НОВОСТИ ТАДЖИКИСТАНА</span>
+      </div>
+      <div class="news-grid">
+        <div class="news-card">
+          <span class="news-tag">ВИЗИТ</span>
+          <h3>Эмомали Рахмон отбыл в Казахстан на экологический саммит</h3>
+          <p>Президент примет участие в Региональном экологическом саммите и заседании Совета глав государств-учредителей МФСА в Астане.</p>
+          <div class="news-meta">
+            <span class="news-date">21.04.2026</span>
+            <a href="https://khovar.tj/rus/" class="news-link" target="_blank">Ховар →</a>
           </div>
-
-          <div class="news-card">
-            <span class="news-category">Экономика</span>
-            <h3>Всемирный банк одобрил экстренное финансирование для РТ</h3>
-            <p>Средства направлены на поддержку экономических реформ и стабилизацию финансового сектора страны.</p>
-            <a href="https://khovar.tj/rus/2026/04/vsemirnyj-bank-finansirovanie-tadzhikistan/" class="news-link" target="_blank">Читать на Ховар →</a>
-            <div class="news-date">20 апреля 2026</div>
+        </div>
+        <div class="news-card">
+          <span class="news-tag">ДИПЛОМАТИЯ</span>
+          <h3>Фаррух Шарифзода на Анталийском форуме</h3>
+          <p>Замминистра иностранных дел РТ обсудил сотрудничество с Турцией и провёл двусторонние встречи.</p>
+          <div class="news-meta">
+            <span class="news-date">20.04.2026</span>
+            <a href="https://mfa.tj/ru" class="news-link" target="_blank">МИД РТ →</a>
           </div>
-
-          <div class="news-card">
-            <span class="news-category">Кадры</span>
-            <h3>Кадровые изменения в Верховном суде и Прокуратуре</h3>
-            <p>Указом Президента произведены назначения в судебных и надзорных органах республики.</p>
-            <a href="http://www.president.tj/ru/node/30000" class="news-link" target="_blank">Читать на President.tj →</a>
-            <div class="news-date">6 марта 2026</div>
+        </div>
+        <div class="news-card">
+          <span class="news-tag">БЕЗОПАСНОСТЬ</span>
+          <h3>Глава МВД на форуме по наркоугрозам в Узбекистане</h3>
+          <p>Рамазон Рахимзода обсудил борьбу с транснациональными наркоугрозами и встретился с ООН.</p>
+          <div class="news-meta">
+            <span class="news-date">20.04.2026</span>
+            <a href="https://www.mia.tj/" class="news-link" target="_blank">МВД РТ →</a>
           </div>
-
-          <div class="news-card">
-            <span class="news-category">Дипломатия</span>
-            <h3>Фаррух Шарифзода на Анталийском дипломатическом форуме</h3>
-            <p>Глава МИД Таджикистана обсудил региональную безопасность и водное сотрудничество.</p>
-            <a href="https://mfa.tj/ru/main/view/15000/" class="news-link" target="_blank">Читать на МИД РТ →</a>
-            <div class="news-date">19 апреля 2026</div>
-          </div>
-
-          <div class="news-card">
-            <span class="news-category">Религия</span>
-            <h3>Поздравление Президента с Рамаданом: благотворительность как садака джария</h3>
-            <p>Строительство дорог, мостов, школ и детских садов — непрерывная благотворительность.</p>
-            <a href="http://www.president.tj/ru/node/29500" class="news-link" target="_blank">Читать на President.tj →</a>
-            <div class="news-date">18 февраля 2026</div>
-          </div>
-
-          <div class="news-card">
-            <span class="news-category">Вода</span>
-            <h3>В Душанбе прошла 3-я конференция по Водному десятилетию</h3>
-            <p>Международное сообщество поддержало инициативы Таджикистана в водной сфере.</p>
-            <a href="https://khovar.tj/rus/2026/02/konferentsiya-vodnoe-desyatiletie-dushanbe/" class="news-link" target="_blank">Читать на Ховар →</a>
-            <div class="news-date">18 февраля 2026</div>
-          </div>
-
         </div>
       </div>
 
-      <!-- Цитаты Эмомали Рахмона 2026 -->
-      <div class="president-quotes">
+      <!-- МИРОВЫЕ НОВОСТИ -->
+      <div class="section-header" style="margin-top: 30px;">
+        <span>🌍 ЭКСТРЕННЫЕ НОВОСТИ МИРА</span>
+      </div>
+      <div class="news-grid">
+        <div class="news-card">
+          <span class="news-tag world">ЯПОНИЯ</span>
+          <h3>Землетрясение 7,7 у берегов Японии</h3>
+          <p>Шесть пострадавших, угроза цунами до 3 метров. До берега дошли волны высотой 80 см.</p>
+          <div class="news-meta">
+            <span class="news-date">21.04.2026</span>
+            <a href="#" class="news-link">Подробнее →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <span class="news-tag world">МЕКСИКА</span>
+          <h3>Стрельба у пирамид: пострадал россиянин</h3>
+          <p>Четверо раненых: двое колумбийцев, россиянин и канадка. Нападавший покончил с собой.</p>
+          <div class="news-meta">
+            <span class="news-date">20.04.2026</span>
+            <a href="#" class="news-link">Подробнее →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <span class="news-tag world">БЛИЖНИЙ ВОСТОК</span>
+          <h3>Хуситы грозят закрыть Баб-эль-Мандебский пролив</h3>
+          <p>Угроза связана с давлением на США. Пролив — ключевой транспортный узел.</p>
+          <div class="news-meta">
+            <span class="news-date">19.04.2026</span>
+            <a href="#" class="news-link">Подробнее →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <span class="news-tag world">КНДР</span>
+          <h3>Ким Чен Ын руководил испытанием ракеты</h3>
+          <p>Испытана ракета "Хвасонпхо-11 Ра" с кассетной боеголовкой.</p>
+          <div class="news-meta">
+            <span class="news-date">20.04.2026</span>
+            <a href="#" class="news-link">Подробнее →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <span class="news-tag world">ИРАН</span>
+          <h3>Иран угрожает ответом США за инцидент в Оманском заливе</h3>
+          <p>Американские военные обстреляли иранское судно. Тегеран обещает скорый ответ.</p>
+          <div class="news-meta">
+            <span class="news-date">20.04.2026</span>
+            <a href="#" class="news-link">Подробнее →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <span class="news-tag world">США</span>
+          <h3>Массовая стрельба в Луизиане: 8 детей погибли</h3>
+          <p>Трагедия в городе Шривпорт. Полиция назвала место преступления "обширным".</p>
+          <div class="news-meta">
+            <span class="news-date">20.04.2026</span>
+            <a href="#" class="news-link">Подробнее →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ЦИТАТЫ ПРЕЗИДЕНТА -->
+      <div class="quotes-grid">
         <div class="quote-card">
           <div class="quote-year">2026 · ГОД РАЗВИТИЯ</div>
-          <p>«Мы объявили Год расширения развития и созидательных начинаний, укрепления и консолидации национального самосознания и идентичности»</p>
-          <small>— Эмомали Рахмон, февраль 2026</small>
+          <p>«Мы объявили Год расширения развития и созидательных начинаний»</p>
+          <small>— Эмомали Рахмон</small>
         </div>
         <div class="quote-card">
-          <div class="quote-year">НАВРУЗ · 21 МАРТА 2026</div>
-          <p>«Мы, мусульманская умма, должны быть бдительными и дальновидными. В трудные времена мы должны поддерживать и помогать друг другу»</p>
-          <small>— Выступление на праздновании Навруза</small>
+          <div class="quote-year">НАВРУЗ · 21 МАРТА</div>
+          <p>«Мусульманская умма должна быть бдительной и помогать друг другу»</p>
+          <small>— Выступление на Навруз</small>
         </div>
         <div class="quote-card">
           <div class="quote-year">РАМАДАН · 2026</div>
-          <p>«Строительство дорог, мостов, школ и детских садов — это непрерывная благотворительность (садака джария), приносящая духовную награду»</p>
+          <p>«Строительство дорог и школ — это непрерывная благотворительность»</p>
           <small>— Поздравление с Рамаданом</small>
         </div>
       </div>
 
-      <!-- Конституция РТ -->
-      <div class="constitution-section">
-        <div class="section-title">
-          <h2>КОНСТИТУЦИЯ РЕСПУБЛИКИ ТАДЖИКИСТАН</h2>
-          <span>принята 6 ноября 1994 г. (с изм. 2016 г.)</span>
-        </div>
-
-        <div class="const-grid">
-          <!-- Глава 1 -->
-          <div class="const-chapter">
-            <h3>Глава 1. Основы конституционного строя</h3>
-            <div class="article">
-              <span class="article-number">Статья 1.</span>
-              <p>Республика Таджикистан — суверенное, демократическое, правовое, светское и унитарное государство. Форма правления — президентская. Таджикистан — социальное государство.</p>
-            </div>
-            <div class="article">
-              <span class="article-number">Статья 2.</span>
-              <p>Государственный язык — таджикский. Русский язык является языком межнационального общения. Все нации вправе пользоваться родным языком.</p>
-            </div>
-            <div class="article">
-              <span class="article-number">Статья 5.</span>
-              <p>Человек, его права и свободы — высшая ценность. Жизнь, честь, достоинство и другие естественные права неприкосновенны.</p>
-            </div>
-            <div class="article">
-              <span class="article-number">Статья 6.</span>
-              <p>Народ — носитель суверенитета и единственный источник государственной власти. Узурпация власти — особо тяжкое преступление.</p>
-            </div>
-            <div class="article">
-              <span class="article-number">Статья 9.</span>
-              <p>Государственная власть осуществляется на основе её разделения на законодательную, исполнительную и судебную.</p>
-            </div>
-          </div>
-
-          <!-- Глава 2 -->
-          <div class="const-chapter">
-            <h3>Глава 2. Права, свободы, обязанности человека и гражданина</h3>
-            <div class="article">
-              <span class="article-number">Статья 14.</span>
-              <p>Права и свободы регулируются Конституцией и международными актами. Ограничения допускаются только для защиты прав других, порядка, безопасности и территориальной целостности.</p>
-            </div>
-            <div class="article">
-              <span class="article-number">Статья 17.</span>
-              <p>Все равны перед законом и судом. Гарантируются права независимо от национальности, расы, пола, языка, вероисповедания, убеждений, имущественного положения. Мужчины и женщины равноправны.</p>
-            </div>
-            <div class="article">
-              <span class="article-number">Статья 18.</span>
-              <p>Каждый имеет право на жизнь. Никто не может быть лишён жизни, кроме как по приговору суда за особо тяжкое преступление. Пытки и бесчеловечное обращение запрещены.</p>
-            </div>
-            <div class="article">
-              <span class="article-number">Статья 20.</span>
-              <p>Никто не считается виновным до вступления приговора в законную силу. Закон, усиливающий ответственность, обратной силы не имеет.</p>
-            </div>
-          </div>
-
-          <!-- Глава 6 (дополнительно) -->
-          <div class="const-chapter">
-            <h3>Глава 6. Местные органы власти</h3>
-            <div class="article">
-              <span class="article-number">Статья 76.</span>
-              <p>Местные органы государственной власти состоят из представительных и исполнительных органов. Они обеспечивают исполнение Конституции, законов и актов Президента.</p>
-            </div>
-            <div class="article">
-              <span class="article-number">Статья 77.</span>
-              <p>Местный Маджлис народных депутатов утверждает местный бюджет, программы развития, устанавливает местные налоги и сборы.</p>
-            </div>
-          </div>
-
-          <!-- Дополнительно: судебная власть -->
-          <div class="const-chapter">
-            <h3>Судебная власть · Прокуратура</h3>
-            <div class="article">
-              <span class="article-number">Статья 84.</span>
-              <p>Судебная власть независима и осуществляется от имени государства. Судебная система состоит из Конституционного суда, Верховного суда, Высшего экономического суда, Военного суда, судов областей, г. Душанбе, городов и районов.</p>
-            </div>
-            <div class="article">
-              <span class="article-number">Статья 91.</span>
-              <p>Судьи независимы и подчиняются только Конституции и закону. Вмешательство в их деятельность запрещается.</p>
-            </div>
-            <div class="article">
-              <span class="article-number">Статья 93.</span>
-              <p>Надзор за точным и единообразным исполнением законов на территории Таджикистана осуществляется Генеральным прокурором и подчинёнными ему прокурорами.</p>
-            </div>
-          </div>
-        </div>
+      <!-- КОНСТИТУЦИЯ -->
+      <div class="section-header">
+        <span>📜 КОНСТИТУЦИЯ РЕСПУБЛИКИ ТАДЖИКИСТАН</span>
       </div>
-
-      <!-- Блок дополнительных новостей -->
-      <div class="right-sidebar">
-        <div class="news-widget">
-          <h3>📌 ДРУГИЕ ВАЖНЫЕ СОБЫТИЯ</h3>
-          <div class="news-item">
-            <div class="news-date-item">20 апреля 2026</div>
-            <p>В Душанбе обсудили укрепление законности и правопорядка в регионах</p>
-            <a href="https://khovar.tj/rus/2026/04/zakonnost-pravoporyadok-regiony/" target="_blank">Источник: НИАТ «Ховар» →</a>
+      <div class="const-grid">
+        <div class="const-chapter">
+          <h3>Глава 1. Основы конституционного строя</h3>
+          <div class="article">
+            <span class="article-number">Статья 1.</span>
+            <p>Таджикистан — суверенное, демократическое, правовое, светское и унитарное государство.</p>
           </div>
-          <div class="news-item">
-            <div class="news-date-item">15 апреля 2026</div>
-            <p>Генпрокуратура отчиталась о работе за I квартал 2026 года</p>
-            <a href="https://prokuratura.tj/ru/news/" target="_blank">Источник: Генпрокуратура РТ →</a>
+          <div class="article">
+            <span class="article-number">Статья 5.</span>
+            <p>Человек, его права и свободы — высшая ценность.</p>
           </div>
-          <div class="news-item">
-            <div class="news-date-item">10 апреля 2026</div>
-            <p>Верховный суд РТ: обзор судебной практики по защите прав граждан</p>
-            <a href="http://sud.tj/ru/press-centre/" target="_blank">Источник: Верховный суд РТ →</a>
+          <div class="article">
+            <span class="article-number">Статья 6.</span>
+            <p>Народ — носитель суверенитета и единственный источник власти.</p>
+          </div>
+        </div>
+        <div class="const-chapter">
+          <h3>Глава 2. Права и свободы</h3>
+          <div class="article">
+            <span class="article-number">Статья 17.</span>
+            <p>Все равны перед законом и судом. Мужчины и женщины равноправны.</p>
+          </div>
+          <div class="article">
+            <span class="article-number">Статья 18.</span>
+            <p>Каждый имеет право на жизнь. Пытки запрещены.</p>
+          </div>
+        </div>
+        <div class="const-chapter">
+          <h3>Судебная власть</h3>
+          <div class="article">
+            <span class="article-number">Статья 84.</span>
+            <p>Судебная власть независима. Судьи подчиняются только Конституции.</p>
+          </div>
+          <div class="article">
+            <span class="article-number">Статья 93.</span>
+            <p>Надзор за законами осуществляет Генеральный прокурор.</p>
+          </div>
+        </div>
+        <div class="const-chapter">
+          <h3>Прокуратура</h3>
+          <div class="article">
+            <span class="article-number">Статья 95.</span>
+            <p>Прокуратура осуществляет надзор за точным исполнением законов.</p>
           </div>
         </div>
       </div>
     </main>
 
-    <!-- Подвал -->
+    <!-- ПОДВАЛ -->
     <footer class="footer">
-      <p>© 2026 Генеральная прокуратура Республики Таджикистан. Официальный портал.</p>
-      <p>Конституция принята всенародным референдумом 6 ноября 1994 г. (изм. 1999, 2003, 2016 гг.)</p>
+      <p>© 2026 Генеральная прокуратура Республики Таджикистан</p>
       <p>
-        <a href="http://www.president.tj" target="_blank">Президент Таджикистана</a> · 
-        <a href="https://khovar.tj/rus/" target="_blank">НИАТ «Ховар»</a> · 
-        <a href="https://prokuratura.tj" target="_blank">Генпрокуратура РТ</a> · 
-        <a href="http://sud.tj" target="_blank">Верховный суд РТ</a>
+        <a href="http://president.tj">Президент РТ</a> ·
+        <a href="https://khovar.tj">Ховар</a> ·
+        <a href="https://prokuratura.tj">Генпрокуратура</a>
       </p>
     </footer>
   </div>
