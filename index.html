@@ -2,279 +2,169 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>Новости Таджикистана и мира</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Прокуратура и Конституция Таджикистана — Новости</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    }
-
-    body {
-      background: #f4f7fc;
-      padding: 16px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .page-wrapper {
-      max-width: 1400px;
-      width: 100%;
-      margin: 0 auto;
-    }
-
-    /* ШАПКА */
-    .header {
-      background: linear-gradient(135deg, #0a2a4a 0%, #1a4a6e 100%);
-      border-radius: 20px;
-      padding: 20px 24px;
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    }
-
-    .flags {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-    }
-
-    .header-flag {
-      width: 70px;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
-    }
-
-    .header-emblem {
-      width: 70px;
-      height: auto;
-      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
-    }
-
-    .header-text h1 {
-      color: white;
-      font-size: clamp(1.2rem, 5vw, 2rem);
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
-      margin-bottom: 4px;
-    }
-
-    .header-text p {
-      color: #e0e8ff;
-      font-size: 0.9rem;
-      font-style: italic;
-    }
-
-    .home-link {
-      margin-left: auto;
-      color: #d4a017;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 12px 24px;
-      background: rgba(255,255,255,0.1);
-      border-radius: 12px;
-      white-space: nowrap;
-      transition: 0.2s;
-    }
-
-    .home-link:hover {
-      background: rgba(255,255,255,0.2);
-    }
-
-    /* ВКЛАДКИ */
-    .tabs {
-      display: flex;
-      gap: 12px;
-      margin-bottom: 25px;
-      flex-wrap: wrap;
-    }
-
-    .tab {
-      background: white;
-      padding: 12px 25px;
-      border-radius: 30px;
-      text-decoration: none;
-      color: #0a2a4a;
-      font-weight: 600;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-    }
-
-    .tab.active {
-      background: #0a2a4a;
-      color: #d4a017;
-    }
-
-    /* ЗАГОЛОВКИ СЕКЦИЙ */
-    .section-title {
-      font-size: clamp(1.3rem, 4vw, 1.8rem);
-      color: #0a2a4a;
-      margin: 30px 0 20px;
-      border-bottom: 3px solid #d4a017;
-      padding-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .section-title img {
-      width: 32px;
-      height: auto;
-      border-radius: 4px;
-    }
-
-    /* СЕТКА НОВОСТЕЙ */
-    .news-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-
-    .news-card {
-      background: white;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-      transition: transform 0.2s, box-shadow 0.2s;
-      cursor: pointer;
-    }
-
-    .news-card:active {
-      transform: scale(0.95);
-    }
-
-    .news-img {
-      height: 160px;
-      background-size: cover;
-      background-position: center;
-      position: relative;
-    }
-
-    .news-tag {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      background: #0a2a4a;
-      color: #d4a017;
-      font-size: 0.7rem;
-      font-weight: bold;
-      padding: 4px 12px;
-      border-radius: 20px;
-    }
-
-    .news-tag.world {
-      background: #8b0000;
-      color: #ffd700;
-    }
-
-    .news-content {
-      padding: 18px;
-    }
-
-    .news-content h3 {
-      color: #0a2a4a;
-      font-size: 1.1rem;
-      margin-bottom: 10px;
-    }
-
-    .news-content p {
-      color: #666;
-      font-size: 0.9rem;
-      margin-bottom: 15px;
-    }
-
-    .news-meta {
-      display: flex;
-      justify-content: space-between;
-      color: #999;
-      font-size: 0.8rem;
-      border-top: 1px solid #eee;
-      padding-top: 12px;
-    }
-
-    .news-link {
-      color: #0a2a4a;
-      font-weight: 600;
-      text-decoration: none;
-      border-bottom: 2px solid #d4a017;
-    }
-
-    @media (max-width: 1200px) { .header { flex-wrap: wrap; } .news-grid { grid-template-columns: repeat(3, 1fr); } }
-    @media (max-width: 900px) { .news-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 600px) { .news-grid { grid-template-columns: 1fr; } }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
+    body { background: #f0f4f8; padding: 16px; }
+    .page-wrapper { max-width: 1300px; margin: 0 auto; }
+    /* Шапка */
+    .header { background: linear-gradient(135deg, #0a2a4a, #1a4a6e); border-radius: 20px; padding: 20px 24px; margin-bottom: 20px; display: flex; align-items: center; gap: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); flex-wrap: wrap; }
+    .header img { width: 70px; border-radius: 6px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+    .header h1 { color: white; font-size: clamp(1.2rem, 5vw, 2rem); text-shadow: 2px 2px 6px rgba(0,0,0,0.4); }
+    .header p { color: #e0e8ff; font-size: 0.9rem; }
+    /* Меню */
+    .nav { display: flex; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; }
+    .nav a { background: white; padding: 10px 20px; border-radius: 30px; text-decoration: none; color: #0a2a4a; font-weight: 600; box-shadow: 0 3px 8px rgba(0,0,0,0.1); }
+    .nav a:hover { background: #0a2a4a; color: #d4a017; }
+    /* Секции */
+    .section-title { font-size: 1.8rem; color: #0a2a4a; margin: 30px 0 15px; border-bottom: 3px solid #d4a017; padding-bottom: 8px; }
+    .news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+    .news-card { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 6px 15px rgba(0,0,0,0.1); transition: 0.2s; cursor: pointer; }
+    .news-card:hover { transform: translateY(-5px); }
+    .news-img { height: 180px; background-size: cover; background-position: center; position: relative; }
+    .news-tag { position: absolute; top: 10px; left: 10px; background: #0a2a4a; color: #d4a017; padding: 4px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: bold; }
+    .news-tag.world { background: #8b0000; color: #ffd700; }
+    .news-content { padding: 18px; }
+    .news-content h3 { color: #0a2a4a; margin-bottom: 8px; font-size: 1.1rem; }
+    .news-content p { color: #555; font-size: 0.9rem; margin-bottom: 12px; }
+    .news-meta { display: flex; justify-content: space-between; color: #888; font-size: 0.8rem; border-top: 1px solid #eee; padding-top: 10px; }
+    .news-link { color: #0a2a4a; font-weight: 600; text-decoration: none; border-bottom: 2px solid #d4a017; }
+    /* Конституция */
+    .law-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+    .law-card { background: white; border-radius: 16px; padding: 20px; box-shadow: 0 5px 12px rgba(0,0,0,0.06); border-top: 4px solid #0a2a4a; }
+    .law-card h3 { color: #0a2a4a; margin-bottom: 12px; }
+    .article { margin-bottom: 10px; padding-left: 10px; border-left: 3px solid #d4a017; }
+    .article-number { font-weight: 700; color: #0a2a4a; }
+    /* Подвал */
+    .footer { margin-top: 30px; text-align: center; color: #666; padding: 20px; border-top: 2px solid #d4a017; }
   </style>
 </head>
 <body>
-  <div class="page-wrapper">
-    <div class="header">
-      <div class="flags">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Flag_of_Tajikistan.svg" alt="Флаг Таджикистана" class="header-flag">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Emblem_of_Tajikistan.svg" alt="Герб Таджикистана" class="header-emblem">
-      </div>
-      <div class="header-text">
-        <h1>📰 НОВОСТИ ТАДЖИКИСТАНА И МИРА</h1>
-        <p>Актуальные события из достоверных источников</p>
-      </div>
-      <a href="../index.html" class="home-link">← На главную</a>
+<div class="page-wrapper">
+  <!-- ШАПКА -->
+  <div class="header">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Flag_of_Tajikistan.svg" alt="Флаг Таджикистана">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Emblem_of_Tajikistan.svg" alt="Герб">
+    <div>
+      <h1>ПРОКУРАТУРА ТАДЖИКИСТАНА</h1>
+      <p>Официальный новостной и правовой портал</p>
     </div>
-    <div class="tabs">
-      <a href="#" class="tab active">Все новости</a>
-      <a href="#" class="tab">Таджикистан</a>
-      <a href="#" class="tab">Мир</a>
-    </div>
-    
-    <div class="section-title">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Flag_of_Tajikistan.svg" alt="🇹🇯">
-      ТАДЖИКИСТАН
-    </div>
-    <div class="news-grid">
-      <!-- Новость 1 -->
-      <div class="news-card" onclick="window.open('https://prokuratura.tj/','_blank')">
-        <div class="news-img" style="background-image: url('https://images.pexels.com/photos/6077326/pexels-photo-6077326.jpeg?w=400');"><span class="news-tag">Энергетика</span></div>
-        <div class="news-content"><h3>Эмомали Рахмон провёл совещание по энергосектору</h3><p>Президент поручил усилить борьбу с незаконным использованием электричества.</p><div class="news-meta"><span>25.04.2026</span><span class="news-link">Прокуратура →</span></div></div>
-      </div>
-      <!-- Новость 2 -->
-      <div class="news-card" onclick="window.open('http://russian.xinhuanet.com/','_blank')">
-        <div class="news-img" style="background-image: url('https://images.pexels.com/photos/6150605/pexels-photo-6150605.jpeg?w=400');"><span class="news-tag">Безопасность</span></div>
-        <div class="news-content"><h3>В Душанбе обсудили безопасность Центральной Азии</h3><p>Секретари совбезов обсудили борьбу с терроризмом, экстремизмом и наркотрафиком.</p><div class="news-meta"><span>24.04.2026</span><span class="news-link">Синьхуа →</span></div></div>
-      </div>
-      <!-- Новость 3 -->
-      <div class="news-card" onclick="window.open('https://mfa.tj/ru/main/view/18608','_blank')">
-        <div class="news-img" style="background-image: url('https://images.pexels.com/photos/39561/solar-flare-sun-eruption-39561.jpeg?w=400');"><span class="news-tag">Дипломатия</span></div>
-        <div class="news-content"><h3>Таджикистан принял резолюцию ООН по транспорту</h3><p>Документ усилит транзитный потенциал региона и ускорит доставку грузов.</p><div class="news-meta"><span>24.04.2026</span><span class="news-link">МИД РТ →</span></div></div>
-      </div>
-      <!-- Новость 4 -->
-      <div class="news-card" onclick="window.open('https://gazetemardin.com/','_blank')">
-        <div class="news-img" style="background-image: url('https://images.pexels.com/photos/4386404/pexels-photo-4386404.jpeg?w=400');"><span class="news-tag">ШОС</span></div>
-        <div class="news-content"><h3>Замминистра участвовал в консультациях ШОС в Москве</h3><p>Обсуждалось создание Антинаркотического центра ШОС в Душанбе.</p><div class="news-meta"><span>24.04.2026</span><span class="news-link">Подробнее →</span></div></div>
-      </div>
-      <!-- Новость 5 -->
-      <div class="news-card" onclick="window.open('https://tajikistan.un.org/','_blank')">
-        <div class="news-img" style="background-image: url('https://images.pexels.com/photos/159844/cellular-education-classroom-159844.jpeg?w=400');"><span class="news-tag">Сельское хозяйство</span></div>
-        <div class="news-content"><h3>Душанбе готовится к конференции ФАО в мае 2026</h3><p>Ожидается визит делегатов из 50 стран для обсуждения продовольствия.</p><div class="news-meta"><span>21.04.2026</span><span class="news-link">ООН →</span></div></div>
-      </div>
-      <!-- Новость 6 -->
-      <div class="news-card" onclick="window.open('https://qazinform.com/','_blank')">
-        <div class="news-img" style="background-image: url('https://images.pexels.com/photos/1461975/pexels-photo-1461975.jpeg?w=400');"><span class="news-tag">Экология</span></div>
-        <div class="news-content"><h3>Рахмон: таяние ледников угрожает Центральной Азии</h3><p>Президент выступил на экологическом саммите в Астане.</p><div class="news-meta"><span>22.04.2026</span><span class="news-link">Qazinform →</span></div></div>
-      </div>
-    </div>
-
-    <div class="section-title">🌍 МИРОВЫЕ НОВОСТИ (экстренно)</div>
-    <div class="news-grid">
-      <div class="news-card" onclick="window.open('https://belta.by/','_blank')"><div class="news-img" style="background-image: url('https://images.pexels.com/photos/733740/pexels-photo-733740.jpeg?w=400');"><span class="news-tag world">Япония</span></div><div class="news-content"><h3>Землетрясение 7,7 у берегов Японии</h3><p>Шесть пострадавших, угроза цунами до 3 метров.</p><div class="news-meta"><span>21.04.2026</span><span class="news-link">БелТА →</span></div></div></div>
-      <div class="news-card" onclick="window.open('https://iz.ru/','_blank')"><div class="news-img" style="background-image: url('https://images.pexels.com/photos/356966/pexels-photo-356966.jpeg?w=400');"><span class="news-tag world">Мексика</span></div><div class="news-content"><h3>Стрельба у пирамид: пострадал россиянин</h3><p>Четверо раненых, нападавший покончил с собой.</p><div class="news-meta"><span>20.04.2026</span><span class="news-link">Известия →</span></div></div></div>
-      <div class="news-card" onclick="window.open('https://ria.ru/','_blank')"><div class="news-img" style="background-image: url('https://images.pexels.com/photos/236294/pexels-photo-236294.jpeg?w=400');"><span class="news-tag world">Россия</span></div><div class="news-content"><h3>Путин и Рахмон обсудили сотрудничество</h3><p>Лидеры провели телефонный разговор 19 апреля.</p><div class="news-meta"><span>19.04.2026</span><span class="news-link">РИА →</span></div></div></div>
-      <div class="news-card" onclick="window.open('https://www.bbc.com/','_blank')"><div class="news-img" style="background-image: url('https://images.pexels.com/photos/372748/pexels-photo-372748.jpeg?w=400');"><span class="news-tag world">Европа</span></div><div class="news-content"><h3>Саммит ЕС в Брюсселе: новая стратегия обороны</h3><p>Лидеры ЕС обсуждают коллективную безопасность.</p><div class="news-meta"><span>18.04.2026</span><span class="news-link">BBC →</span></div></div></div>
-    </div>
-    <div style="text-align: center; margin: 40px 0; color: #999;"><p>© 2026 Правовой портал Республики Таджикистан</p></div>
   </div>
+
+  <!-- МЕНЮ -->
+  <div class="nav">
+    <a href="#news">📰 Новости</a>
+    <a href="#world">🌍 В мире</a>
+    <a href="#constitution">📜 Конституция</a>
+    <a href="#laws">📚 Кодексы</a>
+    <a href="#contacts">📞 Контакты</a>
+  </div>
+
+  <!-- НОВОСТИ ТАДЖИКИСТАНА (МНОГО ФОТОК) -->
+  <div id="news" class="section-title">📰 НОВОСТИ ТАДЖИКИСТАНА</div>
+  <div class="news-grid">
+    <!-- Карточка 1 -->
+    <div class="news-card" onclick="window.open('https://khovar.tj/rus/','_blank')">
+      <div class="news-img" style="background-image: url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=600');"><span class="news-tag">Президент</span></div>
+      <div class="news-content"><h3>Рахмон на экосаммите в Астане</h3><p>Выступил с инициативой по спасению ледников.</p><div class="news-meta"><span>22.04.2026</span><span class="news-link">Ховар →</span></div></div>
+    </div>
+    <!-- Карточка 2 -->
+    <div class="news-card" onclick="window.open('https://mfa.tj/ru','_blank')">
+      <div class="news-img" style="background-image: url('https://images.unsplash.com/photo-1558403194-611308249627?w=600');"><span class="news-tag">Дипломатия</span></div>
+      <div class="news-content"><h3>Таджикистан принял резолюцию ООН</h3><p>Усиливает транзитный потенциал региона.</p><div class="news-meta"><span>24.04.2026</span><span class="news-link">МИД РТ →</span></div></div>
+    </div>
+    <!-- Карточка 3 -->
+    <div class="news-card" onclick="window.open('https://prokuratura.tj/','_blank')">
+      <div class="news-img" style="background-image: url('https://images.unsplash.com/photo-1589578527966-fdac0f90366b?w=600');"><span class="news-tag">Энергетика</span></div>
+      <div class="news-content"><h3>Совещание по энергосектору</h3><p>Президент поручил бороться с незаконным использованием энергии.</p><div class="news-meta"><span>25.04.2026</span><span class="news-link">Прокуратура →</span></div></div>
+    </div>
+    <!-- Карточка 4 -->
+    <div class="news-card" onclick="window.open('https://khovar.tj/rus/','_blank')">
+      <div class="news-img" style="background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600');"><span class="news-tag">Образование</span></div>
+      <div class="news-content"><h3>15 новых школ в Хатлоне</h3><p>Построены в рамках Года развития образования.</p><div class="news-meta"><span>15.04.2026</span><span class="news-link">Ховар →</span></div></div>
+    </div>
+    <!-- Карточка 5 -->
+    <div class="news-card" onclick="window.open('https://www.mia.tj/','_blank')">
+      <div class="news-img" style="background-image: url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=600');"><span class="news-tag">Безопасность</span></div>
+      <div class="news-content"><h3>Глава МВД на форуме по наркоугрозам</h3><p>Рахимзода обсудил борьбу с транснациональным наркотрафиком.</p><div class="news-meta"><span>20.04.2026</span><span class="news-link">МВД РТ →</span></div></div>
+    </div>
+    <!-- Карточка 6 -->
+    <div class="news-card" onclick="window.open('http://president.tj/ru','_blank')">
+      <div class="news-img" style="background-image: url('https://images.unsplash.com/photo-1575320181282-9afab399332c?w=600');"><span class="news-tag">Кадры</span></div>
+      <div class="news-content"><h3>Изменения в Верховном суде</h3><p>Указом Президента назначены новые судьи.</p><div class="news-meta"><span>06.03.2026</span><span class="news-link">President.tj →</span></div></div>
+    </div>
+    <!-- Ещё 6 карточек (таджикские новости) -->
+    <div class="news-card" onclick="window.open('https://khovar.tj/rus/','_blank')">
+      <div class="news-img" style="background-image: url('https://images.unsplash.com/photo-1593113598332-cd59e3cc6f13?w=600');"><span class="news-tag">Здравоохранение</span></div>
+      <div class="news-content"><h3>Новый медцентр в Душанбе</h3><p>Современная клиника на 500 мест с новым оборудованием.</p><div class="news-meta"><span>10.04.2026</span><span class="news-link">Ховар →</span></div></div>
+    </div>
+    <div class="news-card" onclick="window.open('https://khovar.tj/rus/','_blank')">
+      <div class="news-img" style="background-image: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600');"><span class="news-tag">Культура</span></div>
+      <div class="news-content"><h3>Навруз в Душанбе</h3><p>Массовые гуляния и концерты в столице.</p><div class="news-meta"><span>21.03.2026</span><span class="news-link">Ховар →</span></div></div>
+    </div>
+    <div class="news-card" onclick="window.open('https://khovar.tj/rus/','_blank')">
+      <div class="news-img" style="background-image: url('https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=600');"><span class="news-tag">Экономика</span></div>
+      <div class="news-content"><h3>Всемирный банк дал $50 млн</h3><p>На цифровизацию госуслуг и поддержку реформ.</p><div class="news-meta"><span>20.04.2026</span><span class="news-link">Ховар →</span></div></div>
+    </div>
+    <div class="news-card" onclick="window.open('https://khovar.tj/rus/','_blank')">
+      <div class="news-img" style="background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600');"><span class="news-tag">Спорт</span></div>
+      <div class="news-content"><h3>Таджикские борцы взяли золото</h3><p>На международном турнире в Алматы.</p><div class="news-meta"><span>18.04.2026</span><span class="news-link">Ховар →</span></div></div>
+    </div>
+  </div>
+
+  <!-- МИРОВЫЕ НОВОСТИ -->
+  <div id="world" class="section-title">🌍 ЭКСТРЕННЫЕ НОВОСТИ МИРА</div>
+  <div class="news-grid">
+    <div class="news-card" onclick="window.open('https://belta.by/','_blank')">
+      <div class="news-img" style="background-image: url('https://images.unsplash.com/photo-1582407948423-7e8d3b9b8f35?w=600');"><span class="news-tag world">Япония</span></div>
+      <div class="news-content"><h3>Землетрясение 7,7</h3><p>Цунами до 3 метров, есть пострадавшие.</p><div class="news-meta"><span>21.04.2026</span><span class="news-link">БелТА →</span></div></div>
+    </div>
+    <div class="news-card" onclick="window.open('https://iz.ru/','_blank')">
+      <div class="news-img" style="background-image: url('https://images.unsplash.com/photo-1509228468518-ef6eea0c3c7e?w=600');"><span class="news-tag world">Мексика</span></div>
+      <div class="news-content"><h3>Стрельба у пирамид</h3><p>Пострадал россиянин, нападавший мёртв.</p><div class="news-meta"><span>20.04.2026</span><span class="news-link">Известия →</span></div></div>
+    </div>
+    <div class="news-card" onclick="window.open('https://ria.ru/','_blank')">
+      <div class="news-img" style="background-image: url('https://images.unsplash.com/photo-1523995462485-3d171b5c8fa9?w=600');"><span class="news-tag world">Россия</span></div>
+      <div class="news-content"><h3>Путин и Рахмон созвонились</h3><p>Обсудили торговлю и безопасность.</p><div class="news-meta"><span>19.04.2026</span><span class="news-link">РИА →</span></div></div>
+    </div>
+    <div class="news-card" onclick="window.open('https://www.bbc.com/','_blank')">
+      <div class="news-img" style="background-image: url('https://images.unsplash.com/photo-1519677100200-5aa50d805a43?w=600');"><span class="news-tag world">Европа</span></div>
+      <div class="news-content"><h3>Саммит ЕС в Брюсселе</h3><p>Новая оборонная стратегия.</p><div class="news-meta"><span>18.04.2026</span><span class="news-link">BBC →</span></div></div>
+    </div>
+    <div class="news-card" onclick="window.open('http://www.china.org.cn/','_blank')">
+      <div class="news-img" style="background-image: url('https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=600');"><span class="news-tag world">КНДР</span></div>
+      <div class="news-content"><h3>Испытание ракеты Ким Чен Ыном</h3><p>Запущена баллистическая ракета с кассетной частью.</p><div class="news-meta"><span>20.04.2026</span><span class="news-link">Синьхуа →</span></div></div>
+    </div>
+  </div>
+
+  <!-- КОНСТИТУЦИЯ (оставлена часть) -->
+  <div id="constitution" class="section-title">📜 КОНСТИТУЦИЯ РТ</div>
+  <div class="law-grid">
+    <div class="law-card">
+      <h3>Глава 1. Основы строя</h3>
+      <div class="article"><span class="article-number">Ст. 1</span> — суверенное, правовое, светское государство.</div>
+      <div class="article"><span class="article-number">Ст. 5</span> — человек, его права — высшая ценность.</div>
+    </div>
+    <div class="law-card">
+      <h3>Глава 2. Права и свободы</h3>
+      <div class="article"><span class="article-number">Ст. 17</span> — все равны перед законом.</div>
+      <div class="article"><span class="article-number">Ст. 18</span> — право на жизнь, запрет пыток.</div>
+    </div>
+    <div class="law-card">
+      <h3>Судебная власть</h3>
+      <div class="article"><span class="article-number">Ст. 84</span> — суды независимы.</div>
+      <div class="article"><span class="article-number">Ст. 93</span> — надзор Генерального прокурора.</div>
+    </div>
+  </div>
+
+  <!-- КОНТАКТЫ -->
+  <div id="contacts" class="section-title" style="margin-top: 30px;">📞 КОНТАКТЫ</div>
+  <div class="news-card" style="padding: 20px; text-align: center;">
+    <p><strong>Генеральная прокуратура РТ</strong><br>г. Душанбе, ул. С. Шерози, 42<br>Тел: +992 (37) 221-00-00<br><a href="https://prokuratura.tj" target="_blank">prokuratura.tj</a></p>
+  </div>
+
+  <div class="footer">© 2026 Прокуратура Республики Таджикистан</div>
+</div>
 </body>
 </html>
